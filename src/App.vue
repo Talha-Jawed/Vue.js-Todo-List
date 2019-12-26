@@ -2,19 +2,25 @@
   <div>
     <!-- <img alt="Vue logo" src="./assets/logo.png" /> -->
     <!-- <HelloWorld msg="Welcome to Your Vue.js Talha" /> -->
-    <Todos v-bind:todos="todos" />
+    <Header />
+    <AddTodo v-on:add-todo="addNewTodo" />
+    <Todos v-bind:todos="todos" v-on:dltTodo="deleteTodo" />
   </div>
 </template>
 
 <script>
 // import HelloWorld from "./components/HelloWorld.vue";
+import Header from "./components/layout/Header";
 import Todos from "./components/Todos";
+import AddTodo from "./components/AddTodo";
 
 export default {
   name: "app",
   components: {
     // HelloWorld,
-    Todos
+    Todos,
+    Header,
+    AddTodo
   },
   data() {
     return {
@@ -24,6 +30,19 @@ export default {
         { id: 3, title: "nabeel", complete: false }
       ]
     };
+  },
+  methods: {
+    deleteTodo(id) {
+      // this.todos = this.todos.filter(item => item.id !== id)
+      this.todos.map((item, ind) => {
+        if (item.id == id) {
+          this.todos.splice(ind, 1);
+        }
+      });
+    },
+    addNewTodo(e) {
+      this.todos = [e, ...this.todos];
+    }
   }
 };
 </script>

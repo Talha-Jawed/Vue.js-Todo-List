@@ -2,7 +2,7 @@
   <div>
     <div v-bind:key="item.id" v-for="item in todos">
       <!-- <h2>{{item.title}}</h2> -->
-      <TodoItem v-bind:todo="item" />
+      <TodoItem v-bind:todo="item" v-on:dltTodo="$emit('dltTodo', item.id)" />
     </div>
   </div>
 </template>
