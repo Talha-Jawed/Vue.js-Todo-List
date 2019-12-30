@@ -1,7 +1,6 @@
 <template>
   <div>
     <!-- <img alt="Vue logo" src="./assets/logo.png" /> -->
-    <!-- <HelloWorld msg="Welcome to Your Vue.js Talha" /> -->
     <Header />
     <AddTodo v-on:add-todo="addNewTodo" />
     <Todos v-bind:todos="todos" v-on:dltTodo="deleteTodo" />
@@ -9,7 +8,6 @@
 </template>
 
 <script>
-// import HelloWorld from "./components/HelloWorld.vue";
 import Header from "./components/layout/Header";
 import Todos from "./components/Todos";
 import AddTodo from "./components/AddTodo";
@@ -17,7 +15,6 @@ import AddTodo from "./components/AddTodo";
 export default {
   name: "app",
   components: {
-    // HelloWorld,
     Todos,
     Header,
     AddTodo
