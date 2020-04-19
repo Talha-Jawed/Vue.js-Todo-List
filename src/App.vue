@@ -30,7 +30,6 @@ export default {
   },
   methods: {
     deleteTodo(id) {
-      // this.todos = this.todos.filter(item => item.id !== id)
       this.todos.map((item, ind) => {
         if (item.id == id) {
           this.todos.splice(ind, 1);
